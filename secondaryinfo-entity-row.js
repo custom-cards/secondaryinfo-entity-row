@@ -62,6 +62,9 @@ class SecondaryInfoEntityRow extends Polymer.Element {
         await dummyEntityCard.updateComplete;
         let entityRow = dummyEntityCard.shadowRoot.querySelector(".state-card-dialog");
 
+        // Restore the custom entityRow type to the config of the newly rendered row
+        entityRow._config.type = "custom:secondaryinfo-entity-row";
+
         let current = this.$.current;
         let next = this.$.next;
 
