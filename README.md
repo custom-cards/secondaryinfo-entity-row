@@ -66,7 +66,7 @@ entities:
 - entity: sun.sun
   name: Entity ID with wrapped in tag
   type: "custom:secondaryinfo-entity-row"
-  secondary_info: "<b>[[ sun.sun.entity_id ]]</b>"
+  secondary_info: "<b style='color:red'>[[ sun.sun.entity_id ]]</b>"
   
 - entity: sun.sun
   name: Absolute time for last-changed
