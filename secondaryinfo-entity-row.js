@@ -3,7 +3,7 @@ var LitElement = LitElement || Object.getPrototypeOf(customElements.get('hui-err
 class SecondaryInfoEntityRow extends LitElement {
 
   render() {
-    return window.cardTools.litHtml`
+    return cardTools.litHtml()`
         ${this._wrappedElement}
     `;
   }
@@ -14,7 +14,7 @@ class SecondaryInfoEntityRow extends LitElement {
 
   setConfig(config) {
     if(!window.cardTools) throw new Error(`Can't find card-tools. See https://github.com/thomasloven/lovelace-card-tools`);
-    window.cardTools.checkVersion(0.1);
+    window.cardTools.checkVersion(0.3);
     this._config = config;
     this._wrappedElement = this._createElement(config);
     this.requestUpdate();
