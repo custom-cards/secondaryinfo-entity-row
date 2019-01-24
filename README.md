@@ -7,7 +7,7 @@ Custom entity row for [Home Assistant](https://home-assistant.io), providing add
 
 ## Prerequisites
 - Home Assistant >= 0.86 (tested against 0.86) 
-- Thomas Lovén’s [card-tools.js](https://github.com/thomasloven/lovelace-card-tools) >= .86 (tested against 0.3)
+- Thomas Lovén’s [card-tools.js](https://github.com/thomasloven/lovelace-card-tools) >= 0.3 (tested against 0.3)
 
 ## Installation Instructions
 #### 1) Install Card Tools if not already installed
