@@ -36,7 +36,8 @@ customElements.whenDefined('card-tools').then(() => {
             await this._wrappedElement.updateComplete;
             let secondaryInfoDiv = this._wrappedElement.shadowRoot.querySelector("hui-generic-entity-row").shadowRoot.querySelector(".secondary");
             if (secondaryInfoDiv && this._config.secondary_info) {
-                let text = window.cardTools.parseTemplate(this._config.secondary_info, 'Unable to parse secondary_info config');
+                const secondary_info_str = this._config.secondary_info.replace('<entity_id>', this._config.entity);
+                let text = window.cardTools.parseTemplate(secondary_info_str, 'Unable to parse secondary_info config');
                 secondaryInfoDiv.innerHTML = text;
             }
         }
