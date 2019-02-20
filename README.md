@@ -24,8 +24,6 @@ resources:
 ```
 
 #### 2) Install Secondary Info Entity Row
-
-
 1. Download [secondaryinfo-entity-row.js](https://github.com/MizterB/lovelace-secondaryinfo-entity-row/raw/master/secondaryinfo-entity-row.js) and place in `<home assistant config root>/www/secondaryinfo-entity-row.js`.
 
 2. Add the following lines to `<home assistant config root>/ui-lovelace.yaml`
@@ -35,6 +33,19 @@ resources:
   - url: /local/secondaryinfo-entity-row.js
     type: module
 ```
+
+## Using custom_updater
+This custom entity row can be integrated into [custom_updater](https://github.com/custom-components/custom_updater), so you can track future updates.  
+
+As this is not included in the default card list, add the following to your `configuration.yaml`:
+
+```yaml
+custom_updater:
+  card_urls:
+    - https://raw.githubusercontent.com/MizterB/lovelace-secondaryinfo-entity-row/master/custom_cards.json
+```
+
+
 ## Options
 The standard [Lovelace configuration for entities](https://www.home-assistant.io/lovelace/entities/) remains valid, with the exception of `secondary_info`.
 
@@ -83,3 +94,11 @@ entities:
   type: "custom:secondaryinfo-entity-row"
   secondary_info: "Next Dawn: [[ sun.sun.attributes.next_dawn ]]"
 ```
+
+## Changelog
+
+*0.1*
+- New release based on card-tools
+
+*0.1.1*
+- Add custom_cards.json for custom_updater integration
