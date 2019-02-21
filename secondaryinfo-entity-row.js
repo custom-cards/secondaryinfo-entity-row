@@ -1,7 +1,7 @@
 customElements.whenDefined('card-tools').then(() => {
 
     class SecondaryInfoEntityRow extends cardTools.litElement() {
-        version() { return "0.1"; }
+        version() { return "0.2"; }
 
         render() {
             return cardTools.litHtml()`
@@ -34,6 +34,7 @@ customElements.whenDefined('card-tools').then(() => {
 
             this._wrappedElement.hass = hass;
             await this._wrappedElement.updateComplete;
+            await this._wrappedElement.shadowRoot.querySelector("hui-generic-entity-row");
             let secondaryInfoDiv = this._wrappedElement.shadowRoot.querySelector("hui-generic-entity-row").shadowRoot.querySelector(".secondary");
             if (secondaryInfoDiv && this._config.secondary_info) {
                 let text = window.cardTools.parseTemplate(this._config.secondary_info, 'Unable to parse secondary_info config');
