@@ -6,8 +6,8 @@ Custom entity row for [Home Assistant](https://home-assistant.io), providing add
 **_This module was completely rewritten for the 0.86 release of Home Assistant!  There is now an external dependency, and the old configuration options are no longer valid.  Please configure from scratch!_**
 
 ## Prerequisites
-- Home Assistant >= 0.88 (last tested against 0.88) 
-- Thomas Lovén’s [card-tools.js](https://github.com/thomasloven/lovelace-card-tools) >= 0.3 (tested against 0.3, *Feb 19 2019 commit*)
+- Home Assistant >= 0.88 (last tested against 0.88.1) 
+- Thomas Lovén’s [card-tools.js](https://github.com/thomasloven/lovelace-card-tools) >= 0.4 (tested against 0.4, *5fbed4*)
 
 ## Installation Instructions
 #### 1) Install Card Tools if not already installed
@@ -68,6 +68,20 @@ Next is one of:
 - last_updated
 ```
 
+Also see details of the new conditional syntax at [useful-markdown-card](https://github.com/thomasloven/lovelace-useful-markdown-card#if):
+
+```
+if
+
+Syntax: [[ if(<condition>, <then>, <else>) ]] Simply put, if <condition> is satisfied, the template will be replaced with <then>, otherwise it will be replaced with <else>.
+
+Both <then> and <else> can in turn be <template> expressions, and <else> can even be another if(!).
+
+Conditions are in the form <left> <comparison> <right> where <left> and <right> are <template>, strings or numeric values.
+
+<comparison> is one of ==, !=, <, >, <= or >=.
+
+```
 ## Examples
 
 ```yaml
@@ -93,9 +107,24 @@ entities:
   name: Entity attribute
   type: "custom:secondaryinfo-entity-row"
   secondary_info: "Next Dawn: [[ sun.sun.attributes.next_dawn ]]"
+  
+- entity: sun.sun
+  name: Templated entity object
+  type: "custom:secondaryinfo-entity-row"
+  secondary_info:  "Next Dawn: [[ {entity}.attributes.next_dawn ]]"
+  
+- entity: sun.sun
+  name: Conditional template
+  type: "custom:secondaryinfo-entity-row"
+  secondary_info: '[[ if(sun.sun.attributes.elevation < 0, "Below", "Above") ]] the horizon'
 ```
 
 ## Changelog
+
+*0.3*
+- The configured entity object can now be referenced as `{entity}` inside a template.  This enables compatibility with dynamic entity list generators such as [auto-entities](https://github.com/thomasloven/lovelace-auto-entities).
+- Requires card-tools 0.4, which introduces conditional statements in the template.  See [useful-markdown-card](https://github.com/thomasloven/lovelace-useful-markdown-card#if).
+- Examples updated
 
 *0.2*
 - Compatibility with Home Assistant 0.88
