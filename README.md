@@ -118,8 +118,13 @@ entities:
   type: "custom:secondaryinfo-entity-row"
   secondary_info: '[[ if(sun.sun.attributes.elevation < 0, "Below", "Above") ]] the horizon'
 ```
+<img alt="example" src="https://user-images.githubusercontent.com/5458030/54823057-0a5cfd00-4c7d-11e9-9251-b539eb423c0d.png" width="400">
 
 ## Changelog
+
+*0.3.1*
+- Replaced deprecated card-tools functions
+- Added example image to GitHub
 
 *0.3*
 - The configured entity object can now be referenced as `{entity}` inside a template.  This enables compatibility with dynamic entity list generators such as [auto-entities](https://github.com/thomasloven/lovelace-auto-entities).
