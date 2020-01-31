@@ -1,7 +1,7 @@
 customElements.whenDefined('card-tools').then(() => {
 
     class SecondaryInfoEntityRow extends cardTools.LitElement {
-        version() { return "0.3.1"; }
+        version() { return "0.4"; }
 
         render() {
             return cardTools.LitHtml`
@@ -10,7 +10,7 @@ customElements.whenDefined('card-tools').then(() => {
         }
 
         setConfig(config) {
-            cardTools.checkVersion(0.4);
+            cardTools.checkVersion(2.0);
             this._config = config;
             this._wrappedElement = this._createElement(config);
             this.requestUpdate();
