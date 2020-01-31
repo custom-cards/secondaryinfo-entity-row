@@ -24,7 +24,8 @@ customElements.whenDefined('card-tools').then(() => {
 
         _createElement(config) {
             // Override the custom row type in order to create the 'standard' row for this entity
-            let defaultRowConfig = Object.assign(config, {type: "default"});
+            let defaultRowConfig = Object.assign({}, config);
+            delete defaultRowConfig.type;
             const element = cardTools.createEntityRow(defaultRowConfig);
             return element;
         }
