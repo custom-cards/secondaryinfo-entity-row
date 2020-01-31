@@ -2,49 +2,16 @@ secondaryinfo-entity-row
 ========================
 Custom entity row for [Home Assistant](https://home-assistant.io), providing additional types of data to be displayed in the secondary info sections of the Lovelace Entities card.
 
-## IMPORTANT
-**_This module was completely rewritten for the 0.86 release of Home Assistant!  There is now an external dependency, and the old configuration options are no longer valid.  Please configure from scratch!_**
-
 ## Prerequisites
-- Home Assistant >= 0.88 (last tested against 0.88.1) 
-- Thomas Lovén’s [card-tools.js](https://github.com/thomasloven/lovelace-card-tools) >= 0.4 (tested against 0.4, *5fbed4*)
+- Home Assistant >= 0.88 (last tested against 0.104.3) 
+- Thomas Lovén’s [card-tools.js](https://github.com/thomasloven/lovelace-card-tools) >= 2.0 (tested against 2.0, *49f34cd*)
 
 ## Installation Instructions
-#### 1) Install Card Tools if not already installed
-If you see "Can't find card-tools. [...]" in your Home Assistant UI, follow these instructions.
+#### 1) Install the latest Card Tools via HACS
+Card-tools is available as a plugin in the default community store
 
-1. Download [card-tools.js](https://github.com/thomasloven/lovelace-card-tools/raw/master/card-tools.js) and place in `<home assistant config root>/www/card-tools.js`.
-
-2. Add the following lines to `<home assistant config root>/ui-lovelace.yaml`
-
-```yaml
-resources:
-  - url: /local/card-tools.js
-    type: js
-```
-
-#### 2) Install Secondary Info Entity Row
-1. Download [secondaryinfo-entity-row.js](https://github.com/MizterB/lovelace-secondaryinfo-entity-row/raw/master/secondaryinfo-entity-row.js) and place in `<home assistant config root>/www/secondaryinfo-entity-row.js`.
-
-2. Add the following lines to `<home assistant config root>/ui-lovelace.yaml`
-
-```yaml
-resources:
-  - url: /local/secondaryinfo-entity-row.js
-    type: module
-```
-
-## Using custom_updater
-This custom entity row can be integrated into [custom_updater](https://github.com/custom-components/custom_updater), so you can track future updates.  
-
-As this is not included in the default card list, add the following to your `configuration.yaml`:
-
-```yaml
-custom_updater:
-  card_urls:
-    - https://raw.githubusercontent.com/MizterB/lovelace-secondaryinfo-entity-row/master/custom_cards.json
-```
-
+#### 2) Install Secondary Info Entity Row via HACS
+Secondaryinfo Entity Row is available as a plugin in the default community store
 
 ## Options
 The standard [Lovelace configuration for entities](https://www.home-assistant.io/lovelace/entities/) remains valid, with the exception of `secondary_info`.
@@ -121,6 +88,9 @@ entities:
 <img alt="example" src="https://user-images.githubusercontent.com/5458030/54823057-0a5cfd00-4c7d-11e9-9251-b539eb423c0d.png" width="400">
 
 ## Changelog
+*0.4*
+- Compatible with latest card-tools
+- Updated README with HACS install info
 
 *0.3.1*
 - Replaced deprecated card-tools functions
