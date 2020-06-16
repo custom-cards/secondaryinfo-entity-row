@@ -45,6 +45,7 @@ customElements.whenDefined('card-tools').then(() => {
                 } else {
                     text = window.cardTools.parseTemplate(this._config.secondary_info, {entity: this._config.entity});
                 }
+                secondaryInfoDiv.innerHTML = text;
             }
         }
     }
