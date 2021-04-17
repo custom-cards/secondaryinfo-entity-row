@@ -38,7 +38,12 @@ customElements.whenDefined('card-tools').then(() => {
             await this._wrappedElement.shadowRoot.querySelector("hui-generic-entity-row");
             let secondaryInfoDiv = this._wrappedElement.shadowRoot.querySelector("hui-generic-entity-row").shadowRoot.querySelector(".secondary");
             if (secondaryInfoDiv && this._config.secondary_info) {
-                let text = window.cardTools.parseTemplate(this._config.secondary_info, {entity: this._config.entity});
+                let text;
+                if (this._config.secondary_info.includes('{{') || this._config.secondary_info.includes('{%')) {
+                    text = await window.cardTools.parseTemplate(hass, this._config.secondary_info, {entity: this._config.entity})
+                } else {
+                    text = window.cardTools.parseTemplate(this._config.secondary_info, {entity: this._config.entity});
+                }
                 secondaryInfoDiv.innerHTML = text;
             }
         }
