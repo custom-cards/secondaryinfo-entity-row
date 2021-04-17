@@ -7,15 +7,19 @@ Custom entity row for [Home Assistant](https://home-assistant.io), providing add
 - Thomas Lovén’s [card-tools.js](https://github.com/thomasloven/lovelace-card-tools) >= 2.0 (tested against 2.0, *49f34cd*)
 
 ## Installation Instructions
-#### 1) Install the latest Card Tools via HACS
-Card-tools is available as a plugin in the default community store
+This card is available as a plugin in the default community store of [HACS](https://hacs.xyz)
+#### 1) Install the latest Card Tools via HACS (Prerequisite)
+Search for the `card-tools` plugin in HACS and install.  This is available in the default HACS community store.
 
-#### 2) Install Secondary Info Entity Row
-Use [HACS](https://hacs.xyz) or follow this [guide](https://github.com/thomasloven/hass-config/wiki/Lovelace-Plugins)
+#### 2) Install Secondary Info Entity Row via HACS
+Search for the `secondaryinfo-entity-row` plugin in HACS and install.
 
-```yaml
+#### 3) Update the Lovelace configuration to use the plugins
+```
 resources:
-  url: /local/secondaryinfo-entity-row.js
+  url: /hacsfiles/card-tools.js
+  type: module
+  url: /hacsfiles/secondaryinfo-entity-row.js
   type: module
 ```
 
@@ -94,6 +98,9 @@ entities:
 <img alt="example" src="https://user-images.githubusercontent.com/5458030/54823057-0a5cfd00-4c7d-11e9-9251-b539eb423c0d.png" width="400">
 
 ## Changelog
+*0.4.1*
+- Updated HACS support files and documentation
+
 *0.4*
 - Compatible with latest card-tools
 - Updated README with HACS install info
