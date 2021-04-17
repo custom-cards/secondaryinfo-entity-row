@@ -1,7 +1,7 @@
 customElements.whenDefined('card-tools').then(() => {
 
     class SecondaryInfoEntityRow extends cardTools.LitElement {
-        version() { return "0.4"; }
+        version() { return "0.5"; }
 
         render() {
             return cardTools.LitHtml`
