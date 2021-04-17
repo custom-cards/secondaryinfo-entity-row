@@ -1,0 +1,7 @@
+{
+  "name": "secondaryinfo-entity-row",
+  "content_in_root": true,
+  "filename": "secondaryinfo-entity-row.js",
+  "render_readme": true,
+  "homeassistant": "0.88"
+}
