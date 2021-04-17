@@ -1,7 +1,7 @@
 {
   "secondaryinfo-entity-row": {
     "updated_at": "2021-04-17",
-    "version": "0.4.1",
+    "version": "0.5",
     "remote_location": "https://raw.githubusercontent.com/custom-cards/secondaryinfo-entity-row/master/secondaryinfo-entity-row.js",
     "visit_repo": "https://github.com/custom-cards/secondaryinfo-entity-row",
     "changelog": "https://github.com/custom-cards/secondaryinfo-entity-row#changelog"

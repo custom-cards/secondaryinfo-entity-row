@@ -3,8 +3,8 @@ secondaryinfo-entity-row
 Custom entity row for [Home Assistant](https://home-assistant.io), providing additional types of data to be displayed in the secondary info sections of the Lovelace Entities card.
 
 ## Prerequisites
-- Home Assistant >= 0.88 (last tested against 0.104.3) 
-- Thomas Lovén’s [card-tools.js](https://github.com/thomasloven/lovelace-card-tools) >= 2.0 (tested against 2.0, *49f34cd*)
+- Home Assistant >= 0.88 (last tested against 2021.4.4) 
+- Thomas Lovén’s [card-tools.js](https://github.com/thomasloven/lovelace-card-tools) >= 2.0 (tested against 11)
 
 ## Installation Instructions
 This card is available as a plugin in the default community store of [HACS](https://hacs.xyz)
@@ -26,7 +26,13 @@ resources:
 ## Options
 The standard [Lovelace configuration for entities](https://www.home-assistant.io/lovelace/entities/) remains valid, with the exception of `secondary_info`.
 
-`secondary_info` should be a string value, enclosed in double-quotes, which supports the [parseTemplate syntax defined in card-tools.js](https://github.com/thomasloven/lovelace-card-tools).  Per the documentation:
+### New way - Home Assistant rendering
+To utilize card-tools Jinja2 API, `secondary_info` should be a string value with at least one Jinja2 tag (either starting with `{{` or 
+`{%`). In addition, **every user that should be able to see `secondary_info` content, must be an admin**. This constraint comes from 
+card-tools.
+
+### Old way - Custom template language
+For card-tools old templating support, `secondary_info` should be a string value, enclosed in double-quotes, which supports the [parseTemplate syntax defined in card-tools.js](https://github.com/thomasloven/lovelace-card-tools).  Per the documentation:
 
 ```
 Two things are important:
@@ -94,10 +100,18 @@ entities:
   name: Conditional template
   type: "custom:secondaryinfo-entity-row"
   secondary_info: '[[ if(sun.sun.attributes.elevation < 0, "Below", "Above") ]] the horizon'
+  
+- entity: sun.sun
+  name: Jinja2 template
+  type: "custom:secondaryinfo-entity-row"
+  secondary_info: "Next Dawn: {{ state_attr('sun.sun', 'next_dawn') }}"
 ```
 <img alt="example" src="https://user-images.githubusercontent.com/5458030/54823057-0a5cfd00-4c7d-11e9-9251-b539eb423c0d.png" width="400">
 
 ## Changelog
+*0.5*
+- Jinja2 templates support from card-tools
+
 *0.4.1*
 - Updated HACS support files and documentation
 
